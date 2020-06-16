@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mini-Vue</title>
+</head>
+
+<body>
+  <script src="../dist/umd/vue.js"></script>
+  <script>
+    let vm = new Vue({
+      el: '#app',
+      data() {
+        return {
+          name: '鸣谦',
+          info: {
+            location: '上海',
+            tel: '138xxxx5568'
+          }
+        }
+      }
+    })
+    vm._data.name = 1212121
+    console.log(vm._data)
+  </script>
+</body>
+
+</html>
