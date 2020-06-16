@@ -9,4 +9,18 @@ function curry (fn, ...args) {
 export const isObject = curry(checkType, 'Object')
 export const isArray = curry(checkType, 'Array')
 export const isNum = curry(checkType, 'Number')
-export const isFunction = curry(checkType, 'Function')  
+export const isFunction = curry(checkType, 'Function')
+
+
+export function def (data, key, value) {
+
+  const enumerable = false
+  const configurable = false
+
+  Object.defineProperty(
+    data,
+    key,
+    { value, enumerable, configurable }
+  )
+
+}
