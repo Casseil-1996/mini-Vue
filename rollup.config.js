@@ -1,7 +1,9 @@
 // rollup 配置文件
 import babel from 'rollup-plugin-babel'
 import serve from 'rollup-plugin-serve'
-
+const port = 2020
+const openPage = '/public/index.html'
+// http://localhost:2020/public/index.html
 export default {
   input: './src/index.js',
   output: {
@@ -17,8 +19,8 @@ export default {
     process.env.ENV === 'development' ?
       serve({
         open: true,
-        openPage: '/public/index.html',
-        port: 2020,
+        openPage,
+        port,
         contentBase: ''
       }) : null
   ]
