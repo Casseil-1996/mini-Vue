@@ -23,7 +23,6 @@ export function initMixin (Vue) {
     if (options.render) return
     let template = options.template
     if (!template && el) template = el.outerHTML
-    console.log(template)
     const render = compileToFunction(template)
     options.render = render
   }
