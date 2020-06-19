@@ -1,4 +1,4 @@
-import { isObject, def } from '../utils'
+import { isObject, def } from '../utils/index'
 import { arrayMethods } from './array'
 // 把 data 中的数据 都使用 defineProperty 重新定义
 // 只能兼容 IE8 以上

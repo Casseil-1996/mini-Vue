@@ -1,4 +1,4 @@
-import { isObject, isFunction } from './utils'
+import { isObject, isFunction } from './utils/index'
 import { observe } from './observe/index'
 
 export function initState (vm) {

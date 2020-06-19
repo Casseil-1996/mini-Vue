@@ -11,7 +11,7 @@ export const isArray = curry(checkType, 'Array')
 export const isNum = curry(checkType, 'Number')
 export const isFunction = curry(checkType, 'Function')
 
-
+export const isEmptyArray = (arr) => !arr || !Array.isArray(arr) || !arr.length
 export function def (data, key, value) {
 
   const enumerable = false

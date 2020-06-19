@@ -1,4 +1,6 @@
 
+import { ELEMENT_TYPE, TEXT_TYPE } from '../utils/constant'
+
 // nodeType 
 // 1 DOM
 // 3 文本
@@ -12,9 +14,6 @@ const startTagOpen = new RegExp(`^<${qnameCapture}`)  // 捕获到了 开始标�
 const startTagClose = /^\s*(\/?)>/
 const endTag = new RegExp(`^<\\/${qnameCapture}[^>]*>`)
 
-// @/compiler/parser/text-parser.js
-const defaultTagRE = /\{\{((?:.|\r?\n)+?)\}\}/g
-
 // 根节点(AST的树根)
 let root = null,
   // 父节点
@@ -23,8 +22,7 @@ let root = null,
   // 遇到相同结束标签, 弹出最后一个元素,
   // 如果整个htmlStr解析完后, 栈中还有内容, 则需要报错
   stack = []
-const ELEMENT_TYPE = 1,
-  TEXT_TYPE = 3
+
 
 function createASTElement (tagName, attrs) {
   return {
