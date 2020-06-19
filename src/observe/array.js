@@ -26,7 +26,7 @@ methods.forEach(m => {
       default:
         break;
     }
-    if (inserted) console.log(this.__ob__.observeArray(inserted))
+    if (inserted) this.__ob__.observeArray(inserted)
     return res
   }
 })

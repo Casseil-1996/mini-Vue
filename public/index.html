@@ -9,7 +9,12 @@
 
 <body>
   <div id="app" class="app">
-    <p>{{ str }}</p>
+    hello
+    <p>
+      {{ str }}
+      <span>123</span>
+      <span>456</span>
+    </p>
     <p>{{ obj }}</p>
   </div>
 
@@ -24,11 +29,15 @@
             site: '上海',
             tel: '138xxxx5568'
           },
-          arr: [{ b: 2 }]
+          arr: [{
+            b: 2
+          }]
         }
       }
     })
-    vm._data.arr.push({ a: 1 })
+    vm._data.arr.push({
+      a: 1
+    })
     console.log(vm._data)
 
     // rander(){
