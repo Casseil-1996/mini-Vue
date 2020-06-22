@@ -17,7 +17,6 @@
     </p>
     <p>{{ obj }}</p>
   </div>
-
   <script src="../dist/umd/vue.js"></script>
   <script>
     let vm = new Vue({
@@ -33,11 +32,25 @@
             b: 2
           }]
         }
-      }
+      },
+      beforeCreate() {
+        console.log('beforeCreate', this._data)
+      },
+      created() {
+        console.log('created', this._data)
+      },
+      beforeMount() {
+        console.log('beforeMount', this.$el)
+      },
+      mounted() {
+        console.log('mounted', this.$el)
+        console.log(this)
+      },
     })
-    vm._data.arr.push({
+    vm.arr.push({
       a: 1
     })
+    console.log(vm.str)
     console.log(vm._data)
 
     // rander(){

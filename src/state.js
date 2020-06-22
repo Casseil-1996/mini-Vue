@@ -1,9 +1,8 @@
-import { isObject, isFunction } from './utils/index'
+import { isObject, isFunction, proxy } from './utils/index'
 import { observe } from './observe/index'
 
 export function initState (vm) {
   const opts = vm.$options
-  console.log(opts)
   // 初始化 Vue 的状态 
   // vm 的数据来源主要有 data, methods, computed, watch, ...etc
   if (opts.props) {
@@ -39,6 +38,12 @@ function initData (vm) {
   }
   if (!data) return console.error('Data 格式不正确')
   vm._data = data
+  for (const key in data) {
+    if (data.hasOwnProperty(key)) {
+      proxy(vm, '_data', key)
+    }
+  }
+  proxy(data)
   observe(data)
 }
 function initComputed (vm) {

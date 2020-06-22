@@ -41,13 +41,11 @@ function defineReactive (data, key, val) {
   observe(val)
   Object.defineProperty(data, key, {
     get () {
-      console.log('data is read')
       return val
     },
     set (newVal) {
       if (newVal === val) return
       val = newVal
-      console.log('data is change')
     }
   })
 }
