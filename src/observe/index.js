@@ -1,5 +1,6 @@
 import { isObject, def } from '../utils/index'
 import { arrayMethods } from './array'
+import { Dep } from './dep'
 // 把 data 中的数据 都使用 defineProperty 重新定义
 // 只能兼容 IE8 以上
 
@@ -38,14 +39,20 @@ class Observer {
 
 function defineReactive (data, key, val) {
   // @TODO  查阅 MDN , 学习 Object.defineProperties
+  let dep = new Dep()
   observe(val)
   Object.defineProperty(data, key, {
     get () {
+      if (Dep.target) {
+        dep.depend()  // 意味着要将watcher存起来
+      }
       return val
     },
     set (newVal) {
       if (newVal === val) return
+      observe(newVal)
       val = newVal
+      dep.notify()
     }
   })
 }

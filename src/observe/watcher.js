@@ -1,3 +1,5 @@
+import { pushTarget, popTarget } from "./dep"
+
 export default class Watcher {
   constructor(vm, exprOrFn, callBack, options) {
     this.vm = vm
@@ -10,5 +12,9 @@ export default class Watcher {
   get () {
     pushTarget(this)
     this.getter()
+    popTarget()
+  }
+  update () {
+    this.get()
   }
 }
